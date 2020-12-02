@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
 html {
   box-sizing: border-box;
@@ -10,7 +10,11 @@ body {
   overflow-y: hidden;
   display: flex;
   align-items: center;
+  font-family: 'Nunito', sans-serif;
+}
 
+h1 {
+  font-weight: 400;
 }
 
 /* Video Background */
@@ -18,7 +22,8 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-
+  width: 100vw;
+  height: 100vh;
 }
 
 video {
@@ -26,13 +31,17 @@ video {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  object-fit: cover;
+  object-position: center;
 }
 
 .video-overlay {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.35);
   position: fixed;
   left: 0;
   top: 0;
-
 }
 
 /* Container */
@@ -46,7 +55,7 @@ video {
   z-index: 2;
   display: flex;
   justify-content: center;
-
+  background: rgba(255, 255, 255, 0.65);
 }
 
 .input-container {
@@ -77,26 +86,30 @@ input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.623);
   outline: none;
-
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
 }
 
 /* Button */
 button {
   width: 100%;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-top: 15px;
   border: none;
   text-transform: uppercase;
-  background: #006959;
+  background: #111;
   color: white;
   cursor: pointer;
   outline: none;
+  transition: background 0.3s ease;
 }
 
-
+button:hover {
+  background: #333;
+}
 
 /* Countdown */
 ul {
@@ -104,7 +117,7 @@ ul {
 }
 
 li {
-
+  display: inline-block;
   font-size: 30px;
   list-style-type: none;
   padding: 10px;
@@ -123,20 +136,34 @@ li span {
   top: 60px;
 }
 
+.complete-title {
+  font-weight: 700;
+  animation: complete 4s infinite;
+}
+
+@keyframes complete {
+  0% {
+    color: #000;
+  }
+  50% {
+    color: rgb(159, 80, 179);
+    transform: scale(1.05);
+  }
+  100% {
+    color: #000;
+  }
+}
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
-  .video-background {
-
-  }
-  
   video {
-
+    object-position: center;
     margin-top: -1px;
   }
 
   .container {
-
+    min-width: unset;
+    width: 95vw;
     min-height: 245px;
     padding: 20px;
     margin: 10px;
